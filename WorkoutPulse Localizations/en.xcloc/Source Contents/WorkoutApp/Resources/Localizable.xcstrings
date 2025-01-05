@@ -1,0 +1,438 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%@" : {
+
+    },
+    "%@ (%@)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ (%2$@)"
+          }
+        }
+      }
+    },
+    "%@ (%lld/%lld)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ (%2$lld/%3$lld)"
+          }
+        }
+      }
+    },
+    "%@ worked out" : {
+
+    },
+    "%lld" : {
+
+    },
+    "%lld completed workout" : {
+
+    },
+    "%lld completed workouts" : {
+
+    },
+    "%lld Cycles" : {
+
+    },
+    "%lld Exercises" : {
+
+    },
+    "%lld min" : {
+
+    },
+    "%lld sec" : {
+
+    },
+    "%lld. Cycle" : {
+
+    },
+    "%lld/%lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld/%2$lld"
+          }
+        }
+      }
+    },
+    "+" : {
+
+    },
+    "1 hour total workout time" : {
+
+    },
+    "3-day workout streak" : {
+
+    },
+    "5 hours total workout time" : {
+
+    },
+    "7-day workout streak" : {
+
+    },
+    "10 hours total workout time" : {
+
+    },
+    "14-day workout streak" : {
+
+    },
+    "24 hours total workout time" : {
+
+    },
+    "30-day workout streak" : {
+
+    },
+    "48 hours total workout time" : {
+
+    },
+    "90-day workout streak" : {
+
+    },
+    "100 hours total workout time" : {
+
+    },
+    "Achievements" : {
+
+    },
+    "Activity" : {
+
+    },
+    "Adjust your filters or complete a workout to see your history!" : {
+
+    },
+    "Adventurer" : {
+
+    },
+    "Angaben gemäß § 5 TMG" : {
+
+    },
+    "Are you sure you want to end your workout?" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Centurion" : {
+
+    },
+    "Champion" : {
+
+    },
+    "Committed" : {
+
+    },
+    "Complete 1 workout" : {
+
+    },
+    "Complete 5 workouts" : {
+
+    },
+    "Complete 15 workouts" : {
+
+    },
+    "Complete 30 workouts" : {
+
+    },
+    "Complete 50 workouts" : {
+
+    },
+    "Complete 100 workouts" : {
+
+    },
+    "Complete a workout before 6 AM" : {
+
+    },
+    "Completions" : {
+
+    },
+    "Congratulations!" : {
+
+    },
+    "Consistent" : {
+
+    },
+    "Create first custom workout" : {
+
+    },
+    "Curious" : {
+
+    },
+    "Current Streak" : {
+
+    },
+    "Cycle Rest" : {
+
+    },
+    "Cycle Settings" : {
+
+    },
+    "Cycles" : {
+
+    },
+    "Dedicated" : {
+
+    },
+    "Delete" : {
+
+    },
+    "Delete Exercise" : {
+
+    },
+    "Delete Exercise?" : {
+
+    },
+    "Delete Workout?" : {
+
+    },
+    "Deletion not possible" : {
+
+    },
+    "Deselect All" : {
+
+    },
+    "Designer" : {
+
+    },
+    "Discover Workouts" : {
+
+    },
+    "Done" : {
+
+    },
+    "Duration" : {
+
+    },
+    "Duration (Start Time)" : {
+
+    },
+    "Early Bird" : {
+
+    },
+    "Edit Cycle Settings" : {
+
+    },
+    "Edit duration for all exercises" : {
+
+    },
+    "Edit Duration for all Exercises" : {
+
+    },
+    "Edit exercise duration" : {
+
+    },
+    "Edit exercise rest time" : {
+
+    },
+    "Edit Exercises" : {
+
+    },
+    "Edit number of cycles" : {
+
+    },
+    "Edit rest time between cycles" : {
+
+    },
+    "Edit rest time for all exercises" : {
+
+    },
+    "Edit Workouts" : {
+
+    },
+    "End Workout" : {
+
+    },
+    "Enduring" : {
+
+    },
+    "Eternity" : {
+
+    },
+    "Exercise Duration" : {
+
+    },
+    "Exercise Rest" : {
+
+    },
+    "Exercise Title" : {
+
+    },
+    "Exercises" : {
+
+    },
+    "Exercises completed:" : {
+
+    },
+    "Explorer" : {
+
+    },
+    "Filter Workouts" : {
+
+    },
+    "Fortnight" : {
+
+    },
+    "Haftung für Links" : {
+
+    },
+    "Hello, World!" : {
+
+    },
+    "History" : {
+
+    },
+    "Kickoff" : {
+
+    },
+    "Kontakt" : {
+
+    },
+    "Language" : {
+
+    },
+    "Legal Notice" : {
+
+    },
+    "Loading..." : {
+
+    },
+    "Longest Streak" : {
+
+    },
+    "Menu" : {
+
+    },
+    "Minutes" : {
+
+    },
+    "Monthly" : {
+
+    },
+    "More" : {
+
+    },
+    "More Achievements" : {
+
+    },
+    "New" : {
+
+    },
+    "Newbie" : {
+
+    },
+    "Next: %@" : {
+
+    },
+    "No Workouts Found" : {
+
+    },
+    "Number" : {
+
+    },
+    "OK" : {
+
+    },
+    "Organizer" : {
+
+    },
+    "Persistent" : {
+
+    },
+    "Preview" : {
+
+    },
+    "Privacy Policy" : {
+
+    },
+    "Quelle" : {
+
+    },
+    "Rate WorkoutPulse" : {
+
+    },
+    "Resilient" : {
+
+    },
+    "Save" : {
+
+    },
+    "Saved a template workout" : {
+
+    },
+    "Seconds" : {
+
+    },
+    "Select All" : {
+
+    },
+    "Send Feedback" : {
+
+    },
+    "Settings" : {
+
+    },
+    "Starter" : {
+
+    },
+    "Streaks" : {
+
+    },
+    "Terms and Conditions" : {
+
+    },
+    "Timekeeper" : {
+
+    },
+    "Total Duration:" : {
+
+    },
+    "Tripler" : {
+
+    },
+    "Try 3 different workouts" : {
+
+    },
+    "Try 5 different workouts" : {
+
+    },
+    "Try 10 different workouts" : {
+
+    },
+    "Unstoppable" : {
+
+    },
+    "Visit our website" : {
+
+    },
+    "Weeklong" : {
+
+    },
+    "Work out for 1 day" : {
+
+    },
+    "Workout Settings" : {
+
+    },
+    "Workout Title" : {
+
+    },
+    "You just finished another Workout" : {
+
+    },
+    "You need to have at least one Exercise in your workout." : {
+
+    },
+    "Your Workouts" : {
+
+    }
+  },
+  "version" : "1.0"
+}

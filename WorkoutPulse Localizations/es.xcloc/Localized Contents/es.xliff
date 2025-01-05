@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="WorkoutApp/en.lproj/WorkoutPulse-InfoPlist.strings" datatype="plaintext" source-language="en" target-language="es">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="15.4" build-num="15F31d"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleDisplayName" xml:space="preserve">
+        <source>WorkoutPulse</source>
+        <note>Bundle display name</note>
+      </trans-unit>
+      <trans-unit id="CFBundleName" xml:space="preserve">
+        <source>WorkoutPulse</source>
+        <note>Bundle name</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="WorkoutApp/Resources/Localizable.xcstrings" source-language="en" target-language="es" datatype="plaintext">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="15.4" build-num="15F31d"/>
+    </header>
+    <body>
+      <trans-unit id="" xml:space="preserve">
+        <source/>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@" xml:space="preserve">
+        <source>%@</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ (%@)" xml:space="preserve">
+        <source>%1$@ (%2$@)</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ (%lld/%lld)" xml:space="preserve">
+        <source>%1$@ (%2$lld/%3$lld)</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ worked out" xml:space="preserve">
+        <source>%@ worked out</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld" xml:space="preserve">
+        <source>%lld</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld Cycles" xml:space="preserve">
+        <source>%lld Cycles</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld Exercises" xml:space="preserve">
+        <source>%lld Exercises</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld completed workout" xml:space="preserve">
+        <source>%lld completed workout</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld completed workouts" xml:space="preserve">
+        <source>%lld completed workouts</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld min" xml:space="preserve">
+        <source>%lld min</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld sec" xml:space="preserve">
+        <source>%lld sec</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld. Cycle" xml:space="preserve">
+        <source>%lld. Cycle</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%lld/%lld" xml:space="preserve">
+        <source>%1$lld/%2$lld</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="+" xml:space="preserve">
+        <source>+</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="1 hour total workout time" xml:space="preserve">
+        <source>1 hour total workout time</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="3-day workout streak" xml:space="preserve">
+        <source>3-day workout streak</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="5 hours total workout time" xml:space="preserve">
+        <source>5 hours total workout time</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="7-day workout streak" xml:space="preserve">
+        <source>7-day workout streak</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="10 hours total workout time" xml:space="preserve">
+        <source>10 hours total workout time</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="14-day workout streak" xml:space="preserve">
+        <source>14-day workout streak</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="24 hours total workout time" xml:space="preserve">
+        <source>24 hours total workout time</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="30-day workout streak" xml:space="preserve">
+        <source>30-day workout streak</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="48 hours total workout time" xml:space="preserve">
+        <source>48 hours total workout time</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="90-day workout streak" xml:space="preserve">
+        <source>90-day workout streak</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="100 hours total workout time" xml:space="preserve">
+        <source>100 hours total workout time</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Achievements" xml:space="preserve">
+        <source>Achievements</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Activity" xml:space="preserve">
+        <source>Activity</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Adjust your filters or complete a workout to see your history!" xml:space="preserve">
+        <source>Adjust your filters or complete a workout to see your history!</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Adventurer" xml:space="preserve">
+        <source>Adventurer</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Angaben gemäß § 5 TMG" xml:space="preserve">
+        <source>Angaben gemäß § 5 TMG</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to end your workout?" xml:space="preserve">
+        <source>Are you sure you want to end your workout?</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Cancel" xml:space="preserve">
+        <source>Cancel</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Centurion" xml:space="preserve">
+        <source>Centurion</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Champion" xml:space="preserve">
+        <source>Champion</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Committed" xml:space="preserve">
+        <source>Committed</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Complete 1 workout" xml:space="preserve">
+        <source>Complete 1 workout</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Complete 5 workouts" xml:space="preserve">
+        <source>Complete 5 workouts</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Complete 15 workouts" xml:space="preserve">
+        <source>Complete 15 workouts</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Complete 30 workouts" xml:space="preserve">
+        <source>Complete 30 workouts</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Complete 50 workouts" xml:space="preserve">
+        <source>Complete 50 workouts</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Complete 100 workouts" xml:space="preserve">
+        <source>Complete 100 workouts</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Complete a workout before 6 AM" xml:space="preserve">
+        <source>Complete a workout before 6 AM</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Completions" xml:space="preserve">
+        <source>Completions</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Congratulations!" xml:space="preserve">
+        <source>Congratulations!</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Consistent" xml:space="preserve">
+        <source>Consistent</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Create first custom workout" xml:space="preserve">
+        <source>Create first custom workout</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Curious" xml:space="preserve">
+        <source>Curious</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Current Streak" xml:space="preserve">
+        <source>Current Streak</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Cycle Rest" xml:space="preserve">
+        <source>Cycle Rest</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Cycle Settings" xml:space="preserve">
+        <source>Cycle Settings</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Cycles" xml:space="preserve">
+        <source>Cycles</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Dedicated" xml:space="preserve">
+        <source>Dedicated</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Delete" xml:space="preserve">
+        <source>Delete</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Delete Exercise" xml:space="preserve">
+        <source>Delete Exercise</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Delete Exercise?" xml:space="preserve">
+        <source>Delete Exercise?</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Delete Workout?" xml:space="preserve">
+        <source>Delete Workout?</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Deletion not possible" xml:space="preserve">
+        <source>Deletion not possible</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Deselect All" xml:space="preserve">
+        <source>Deselect All</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Designer" xml:space="preserve">
+        <source>Designer</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Discover Workouts" xml:space="preserve">
+        <source>Discover Workouts</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Done" xml:space="preserve">
+        <source>Done</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Duration" xml:space="preserve">
+        <source>Duration</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Duration (Start Time)" xml:space="preserve">
+        <source>Duration (Start Time)</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Early Bird" xml:space="preserve">
+        <source>Early Bird</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Edit Cycle Settings" xml:space="preserve">
+        <source>Edit Cycle Settings</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Edit Duration for all Exercises" xml:space="preserve">
+        <source>Edit Duration for all Exercises</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Edit Exercises" xml:space="preserve">
+        <source>Edit Exercises</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Edit Workouts" xml:space="preserve">
+        <source>Edit Workouts</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Edit duration for all exercises" xml:space="preserve">
+        <source>Edit duration for all exercises</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Edit exercise duration" xml:space="preserve">
+        <source>Edit exercise duration</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Edit exercise rest time" xml:space="preserve">
+        <source>Edit exercise rest time</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Edit number of cycles" xml:space="preserve">
+        <source>Edit number of cycles</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Edit rest time between cycles" xml:space="preserve">
+        <source>Edit rest time between cycles</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Edit rest time for all exercises" xml:space="preserve">
+        <source>Edit rest time for all exercises</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="End Workout" xml:space="preserve">
+        <source>End Workout</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Enduring" xml:space="preserve">
+        <source>Enduring</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Eternity" xml:space="preserve">
+        <source>Eternity</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Exercise Duration" xml:space="preserve">
+        <source>Exercise Duration</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Exercise Rest" xml:space="preserve">
+        <source>Exercise Rest</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Exercise Title" xml:space="preserve">
+        <source>Exercise Title</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Exercises" xml:space="preserve">
+        <source>Exercises</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Exercises completed:" xml:space="preserve">
+        <source>Exercises completed:</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Explorer" xml:space="preserve">
+        <source>Explorer</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Filter Workouts" xml:space="preserve">
+        <source>Filter Workouts</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fortnight" xml:space="preserve">
+        <source>Fortnight</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Haftung für Links" xml:space="preserve">
+        <source>Haftung für Links</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Hello, World!" xml:space="preserve">
+        <source>Hello, World!</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="History" xml:space="preserve">
+        <source>History</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Kickoff" xml:space="preserve">
+        <source>Kickoff</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Kontakt" xml:space="preserve">
+        <source>Kontakt</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Language" xml:space="preserve">
+        <source>Language</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Legal Notice" xml:space="preserve">
+        <source>Legal Notice</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Loading..." xml:space="preserve">
+        <source>Loading...</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Longest Streak" xml:space="preserve">
+        <source>Longest Streak</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Menu" xml:space="preserve">
+        <source>Menu</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Minutes" xml:space="preserve">
+        <source>Minutes</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Monthly" xml:space="preserve">
+        <source>Monthly</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="More" xml:space="preserve">
+        <source>More</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="More Achievements" xml:space="preserve">
+        <source>More Achievements</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="New" xml:space="preserve">
+        <source>New</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Newbie" xml:space="preserve">
+        <source>Newbie</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Next: %@" xml:space="preserve">
+        <source>Next: %@</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="No Workouts Found" xml:space="preserve">
+        <source>No Workouts Found</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Number" xml:space="preserve">
+        <source>Number</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="OK" xml:space="preserve">
+        <source>OK</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Organizer" xml:space="preserve">
+        <source>Organizer</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Persistent" xml:space="preserve">
+        <source>Persistent</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Preview" xml:space="preserve">
+        <source>Preview</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Privacy Policy" xml:space="preserve">
+        <source>Privacy Policy</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Quelle" xml:space="preserve">
+        <source>Quelle</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rate WorkoutPulse" xml:space="preserve">
+        <source>Rate WorkoutPulse</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Resilient" xml:space="preserve">
+        <source>Resilient</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Save" xml:space="preserve">
+        <source>Save</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Saved a template workout" xml:space="preserve">
+        <source>Saved a template workout</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Seconds" xml:space="preserve">
+        <source>Seconds</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Select All" xml:space="preserve">
+        <source>Select All</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Send Feedback" xml:space="preserve">
+        <source>Send Feedback</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Settings" xml:space="preserve">
+        <source>Settings</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Starter" xml:space="preserve">
+        <source>Starter</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Streaks" xml:space="preserve">
+        <source>Streaks</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Terms and Conditions" xml:space="preserve">
+        <source>Terms and Conditions</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Timekeeper" xml:space="preserve">
+        <source>Timekeeper</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Total Duration:" xml:space="preserve">
+        <source>Total Duration:</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Tripler" xml:space="preserve">
+        <source>Tripler</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Try 3 different workouts" xml:space="preserve">
+        <source>Try 3 different workouts</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Try 5 different workouts" xml:space="preserve">
+        <source>Try 5 different workouts</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Try 10 different workouts" xml:space="preserve">
+        <source>Try 10 different workouts</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Unstoppable" xml:space="preserve">
+        <source>Unstoppable</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Visit our website" xml:space="preserve">
+        <source>Visit our website</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Weeklong" xml:space="preserve">
+        <source>Weeklong</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Work out for 1 day" xml:space="preserve">
+        <source>Work out for 1 day</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Workout Settings" xml:space="preserve">
+        <source>Workout Settings</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Workout Title" xml:space="preserve">
+        <source>Workout Title</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="You just finished another Workout" xml:space="preserve">
+        <source>You just finished another Workout</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="You need to have at least one Exercise in your workout." xml:space="preserve">
+        <source>You need to have at least one Exercise in your workout.</source>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Your Workouts" xml:space="preserve">
+        <source>Your Workouts</source>
+        <note/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
