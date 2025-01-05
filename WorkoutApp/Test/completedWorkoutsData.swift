@@ -7,18 +7,18 @@
 
 import Foundation
 
+// generates test data for completed workouts to simulate workout scenarios and streaks
+
 func generateTestData() -> [CompletedWorkout] {
     let calendar = Calendar.current
     let now = Date()
     
-    // Create some sample exercises
     let pushUps = Exercise(title: "Push-ups", duration: 30, rest: 10)
     let sitUps = Exercise(title: "Sit-ups", duration: 30, rest: 10)
     let squats = Exercise(title: "Squats", duration: 30, rest: 10)
     let lunges = Exercise(title: "Lunges", duration: 30, rest: 10)
     let plank = Exercise(title: "Plank", duration: 60, rest: 20)
-    
-    // Create some sample workouts
+
     let workout1 = Workout(title: "Quick HIIT", cycles: 3, cycleRestTime: 60, exercises: [pushUps, sitUps, squats])
     let workout2 = Workout(title: "Core Strength", cycles: 4, cycleRestTime: 90, exercises: [sitUps, plank])
     let workout3 = Workout(title: "Leg Day", cycles: 3, cycleRestTime: 60, exercises: [squats, lunges])
@@ -27,7 +27,6 @@ func generateTestData() -> [CompletedWorkout] {
 
     var completedWorkouts: [CompletedWorkout] = []
 
-    // Generate 100 days of data
     for day in 0..<100 {
         if day % 2 == 0 { // Every other day
             let date = calendar.date(byAdding: .day, value: -day, to: now)!
@@ -36,9 +35,6 @@ func generateTestData() -> [CompletedWorkout] {
         }
     }
 
-    // Add some specific data for testing various scenarios
-
-    // Early bird workout (before 6 AM)
     let earlyBirdDate = calendar.date(bySettingHour: 5, minute: 30, second: 0, of: now)!
     completedWorkouts.append(CompletedWorkout(workout: workout1, timestamp: earlyBirdDate))
 
@@ -75,17 +71,14 @@ func generateStreakTestData() -> [CompletedWorkout] {
     let calendar = Calendar.current
     let now = Date()
     
-    // Create a sample workout
     let exercises = [
         Exercise(title: "Push-ups", duration: 30, rest: 10),
         Exercise(title: "Sit-ups", duration: 30, rest: 10),
         Exercise(title: "Squats", duration: 30, rest: 10)
     ]
     let sampleWorkout = Workout(title: "Test Workout", cycles: 3, cycleRestTime: 60, exercises: exercises)
-
     var completedWorkouts: [CompletedWorkout] = []
 
-    // Helper function to add a workout on a specific day
     func addWorkout(daysAgo: Int) {
         let date = calendar.date(byAdding: .day, value: -daysAgo, to: now)!
         completedWorkouts.append(CompletedWorkout(workout: sampleWorkout, timestamp: date))
@@ -96,7 +89,7 @@ func generateStreakTestData() -> [CompletedWorkout] {
     addWorkout(daysAgo: 1)
     addWorkout(daysAgo: 2)
 
-// Test case 2: 3-day streak (Tripler)
+    // Test case 2: 3-day streak (Tripler)
     for day in 10...12 {
         addWorkout(daysAgo: day)
     }
@@ -123,9 +116,9 @@ func generateStreakTestData() -> [CompletedWorkout] {
     }
 
     // Test case 6: 90-day streak (Eternity)
-//    for day in 150...239 {
-//        addWorkout(daysAgo: day)
-//    }
+    //    for day in 150...239 {
+    //        addWorkout(daysAgo: day)
+    //    }
 
     // Test case 7: Broken streaks
     addWorkout(daysAgo: 300)
