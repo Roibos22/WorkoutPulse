@@ -8,12 +8,7 @@
 import Foundation
 
 class WorkoutTimelineService {
-   // private let dataManager: DataManager
     private let preparationDuration: Double = 10.0
-
-//    init(dataManager: DataManager) {
-//       // self.dataManager = dataManager
-//    }
     
     func createWorkoutTimeline(workout: Workout) -> [Activity] {
         guard !workout.exercises.isEmpty else { return [] }
