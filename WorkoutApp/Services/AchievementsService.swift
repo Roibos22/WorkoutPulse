@@ -25,20 +25,31 @@ class AchievementsService {
         return dataManager.saveAchievements(achievements)
     }
     
-    func getCurrentStreak() -> (length: Int, startDate: Date) {
+    func getCurrentStreak() -> (length: Int, startDate: Date, doneToday: Bool) {
         let completedWorkouts = dataManager.loadCompletedWorkouts()
-        let workoutDates = Set(completedWorkouts.map { Calendar.current.startOfDay(for: $0.timestamp) })
-        guard var latestDate = workoutDates.max() else { return (0, Date()) }
         var currentStreak = 0
+        var doneToday = false
+
+        let workoutDates = Set(completedWorkouts.map { Calendar.current.startOfDay(for: $0.timestamp) })
+        guard var latestDate = workoutDates.max() else { return (0, Date(), false) }
+
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        let yesterday = calendar.date(byAdding: .day, value: -1, to: today)
+        
+        doneToday = calendar.isDate(latestDate, inSameDayAs: today) ? true : false
+        if !(doneToday || calendar.isDate(latestDate, inSameDayAs: yesterday!)) {
+            return (0, Date.now, false)
+        }
         
         while workoutDates.contains(latestDate) {
             currentStreak += 1
             guard let previousDate = Calendar.current.date(byAdding: .day, value: -1, to: latestDate) else { break }
             latestDate = previousDate
         }
-        let streakStartDate = Calendar.current.date(byAdding: .day, value: -(currentStreak - 2), to: latestDate) ?? latestDate
-        
-        return (currentStreak, streakStartDate)
+        let streakStartDate = Calendar.current.date(byAdding: .day, value: -(currentStreak - (doneToday ? 1 : 0)), to: Date.now) ?? latestDate
+
+        return (currentStreak, streakStartDate, doneToday)
     }
 
     func getLongestStreak() -> (length: Int, startDate: Date) {

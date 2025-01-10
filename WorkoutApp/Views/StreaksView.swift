@@ -14,6 +14,9 @@ struct StreaksView: View {
     @State private var completionAchievements: AchievementGroup
     @State private var durationAchievements: AchievementGroup
     @State private var miscAchievements: AchievementGroup
+    @State private var currentStreak: Int = 0
+    @State private var workoutDoneToday: Bool = false
+    @State private var latestDayCurrentStreak: Date = Date.now
     
     init(appState: AppState) {
         self.appState = appState
@@ -32,10 +35,10 @@ struct StreaksView: View {
                         VStack {
                             HStack {
                                 Image(systemName: "flame.fill")
-                                Text("\(appState.getCurrentStreak().length)")
+                                    .foregroundColor(workoutDoneToday ? .red : .gray)
+                                Text("\(currentStreak)")
                                     .foregroundColor(.black)
                             }
-                            .foregroundColor(.red)
                             .bold()
                             .font(.system(size: 40))
                             .padding()
@@ -43,7 +46,7 @@ struct StreaksView: View {
                                     .font(.callout)
                                     .bold()
                             if appState.getCurrentStreak().length > 0 {
-                                Text("\(appState.getCurrentStreak().startDate.formatDDMMMYYYY())")
+                                Text("\(latestDayCurrentStreak.formatDDMMMYYYY())")
                                     .font(.callout)
                             }
                         }
@@ -69,7 +72,7 @@ struct StreaksView: View {
                             Text("Longest Streak")
                                 .font(.callout)
                                 .bold()
-                            if appState.getCurrentStreak().length > 0 {
+                            if appState.getLongestStreak().length > 0 {
                                 Text("\(appState.getLongestStreak().startDate.formatDDMMMYYYY())")
                                     .font(.callout)
                             }
@@ -82,7 +85,6 @@ struct StreaksView: View {
                     .cornerRadius(15)
                 }
                 .padding()
-                
                 
                 achievementsScrollView(appState: appState, title: "Streaks", achievements: streakAchievements)
                 achievementsScrollView(appState: appState, title: "Completions", achievements: completionAchievements)
@@ -98,6 +100,7 @@ struct StreaksView: View {
         .onAppear {
             appState.updateAchievements()
             loadAchievements()
+            (currentStreak, latestDayCurrentStreak , workoutDoneToday) = appState.getCurrentStreak()
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

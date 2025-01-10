@@ -112,7 +112,7 @@ class AppState: ObservableObject {
         historyService.saveWorkoutHistory(workouts: updatedCompletedWorkouts)
     }
     
-    func getCurrentStreak() -> (length: Int, startDate: Date) {
+    func getCurrentStreak() -> (length: Int, startDate: Date, doneToday: Bool) {
         return achievemetnsService.getCurrentStreak()
     }
     

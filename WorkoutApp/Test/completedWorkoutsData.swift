@@ -86,52 +86,52 @@ func generateStreakTestData() -> [CompletedWorkout] {
     }
 
     // Test case 1: 1-day streak (Kickoff)
-    addWorkout(daysAgo: 0)
-    addWorkout(daysAgo: 1)
-    addWorkout(daysAgo: 2)
+    // addWorkout(daysAgo: 0)
+    //addWorkout(daysAgo: 1)
+    //addWorkout(daysAgo: 2)
 
     // Test case 2: 3-day streak (Tripler)
-    for day in 10...12 {
-        addWorkout(daysAgo: day)
-    }
-
-    // Test case 3: 7-day streak (Weeklong)
-    for day in 20...26 {
-        addWorkout(daysAgo: day)
-    }
-
-    // Test case 4: 14-day streak (Fortnight)
-    for day in 40...53 {
-        addWorkout(daysAgo: day)
-    }
-
-    // Test case 5: 30-day streak (Monthly)
-    for day in 70...99 {
-        addWorkout(daysAgo: day)
-    }
-    for day in 70...99 {
-        addWorkout(daysAgo: day)
-    }
-    for day in 70...99 {
-        addWorkout(daysAgo: day)
-    }
-
-    // Test case 6: 90-day streak (Eternity)
-    //    for day in 150...239 {
-    //        addWorkout(daysAgo: day)
-    //    }
-
-    // Test case 7: Broken streaks
-    addWorkout(daysAgo: 300)
-    addWorkout(daysAgo: 301)
-    addWorkout(daysAgo: 303) // One day gap
-    addWorkout(daysAgo: 304)
-    addWorkout(daysAgo: 305)
+//    for day in 10...12 {
+//        addWorkout(daysAgo: day)
+//    }
+//
+//    // Test case 3: 7-day streak (Weeklong)
+//    for day in 20...26 {
+//        addWorkout(daysAgo: day)
+//    }
+//
+//    // Test case 4: 14-day streak (Fortnight)
+//    for day in 40...53 {
+//        addWorkout(daysAgo: day)
+//    }
+//
+//    // Test case 5: 30-day streak (Monthly)
+//    for day in 70...99 {
+//        addWorkout(daysAgo: day)
+//    }
+//    for day in 70...99 {
+//        addWorkout(daysAgo: day)
+//    }
+//    for day in 70...99 {
+//        addWorkout(daysAgo: day)
+//    }
+//
+//    // Test case 6: 90-day streak (Eternity)
+//    //    for day in 150...239 {
+//    //        addWorkout(daysAgo: day)
+//    //    }
+//
+//    // Test case 7: Broken streaks
+//    addWorkout(daysAgo: 300)
+//    addWorkout(daysAgo: 301)
+//    addWorkout(daysAgo: 303) // One day gap
+//    addWorkout(daysAgo: 304)
+//    addWorkout(daysAgo: 305)
 
     // Test case 8: Multiple workouts in a day (should still count as one day for streak)
-    let multipleDayDate = calendar.date(byAdding: .day, value: -400, to: now)!
-    completedWorkouts.append(CompletedWorkout(workout: sampleWorkout, timestamp: multipleDayDate))
-    completedWorkouts.append(CompletedWorkout(workout: sampleWorkout, timestamp: multipleDayDate.addingTimeInterval(3600))) // 1 hour later
+//    let multipleDayDate = calendar.date(byAdding: .day, value: -400, to: now)!
+//    completedWorkouts.append(CompletedWorkout(workout: sampleWorkout, timestamp: multipleDayDate))
+//    completedWorkouts.append(CompletedWorkout(workout: sampleWorkout, timestamp: multipleDayDate.addingTimeInterval(3600))) // 1 hour later
 
     return completedWorkouts
 }

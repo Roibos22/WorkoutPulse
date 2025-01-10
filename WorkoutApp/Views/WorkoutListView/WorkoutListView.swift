@@ -11,6 +11,7 @@ struct WorkoutListView: View {
     @ObservedObject var viewModel: WorkoutListViewModel
     @EnvironmentObject var appState: AppState
     @State private var currentStreak: Int = 0
+    @State private var workoutDoneToday: Bool = false
     
     var body: some View {
         NavigationView {
@@ -44,7 +45,7 @@ struct WorkoutListView: View {
                 .padding(.vertical, 10)
             }
             .onAppear {
-                currentStreak = viewModel.getCurrentStreak()
+                (currentStreak, _ , workoutDoneToday) = viewModel.getCurrentStreak()
             }
             .scrollIndicators(.hidden)
             .toolbar {
@@ -118,7 +119,7 @@ struct WorkoutListView: View {
         NavigationLink(destination: StreaksView(appState: viewModel.getAppState())) {
             HStack {
                 Image(systemName: "flame.fill")
-                    .foregroundColor(.red)
+                    .foregroundColor(workoutDoneToday ? .red : .gray)
                 Text("\(currentStreak)")
             }
             .foregroundColor(.primary)

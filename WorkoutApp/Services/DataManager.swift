@@ -76,6 +76,7 @@ class DataManager {
             completedWorkouts  = try JSONDecoder().decode([CompletedWorkout].self, from: data)
         } catch {
             completedWorkouts = [ ]
+            //completedWorkouts = generateStreakTestData()
         }
         return completedWorkouts
     }

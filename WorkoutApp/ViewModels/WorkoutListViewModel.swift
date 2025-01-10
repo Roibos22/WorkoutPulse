@@ -49,8 +49,8 @@ class WorkoutListViewModel: ObservableObject {
         }
     }
     
-    func getCurrentStreak() -> Int {
-        return appState.getCurrentStreak().length
+    func getCurrentStreak() -> (length: Int, startDate: Date, doneToday: Bool) {
+        return (appState.getCurrentStreak())
     }
     
     func getAppState() -> AppState {
