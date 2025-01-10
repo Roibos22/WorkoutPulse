@@ -13,28 +13,25 @@ import UIKit
 
 class WorkoutActiveViewModel: ObservableObject {
     @Published var workout: Workout
-    @Published var workoutTimeline: [Activity]
-    @Published var workoutTimeLeft: Double
-    @Published var currentActivityTimeLeft: Double
-    @Published var isRunning = false
-    @Published var showCompletedView = false
+    let workoutViewModel: WorkoutDetailViewModel
+    private let appState: AppState
+    private var audioPlayer: AVAudioPlayer?
+    private var backgroundTask: UIBackgroundTaskIdentifier = .invalid
+    // STATE
     @Published var isPaused = false
-    @Published var celebrationSoundPlayed = false
+    @Published var isRunning = false
     @Published var circleProgress = 0.0
     @Published var barProgress = 0.0
-    @Published var activityIndex = 0
-
-    let workoutViewModel: WorkoutDetailViewModel
-    private var cancellables = Set<AnyCancellable>()
-    private let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
+    @Published var showCompletedView = false
+    @Published var celebrationSoundPlayed = false
     private var countdownPlayed = false
-    var currentActivityDurationDone = 0.0
-    private var workoutDurationDone = 0.0
-    private var backgroundTask: UIBackgroundTaskIdentifier = .invalid
-    private var audioPlayer: AVAudioPlayer?
-    private let appState: AppState
+    // TIMER
+    @Published var workoutTimeline: [Activity]
+    @Published var activityIndex = 0
+    @Published var workoutTimeLeft: Double
+    @Published var currentActivityTimeLeft: Double
+    private var cancellables = Set<AnyCancellable>()
     
-
     init(workoutViewModel: WorkoutDetailViewModel, workout: Workout, workoutTimeline: [Activity], appState: AppState) {
         self.workoutViewModel = workoutViewModel
         self.workout = workout
@@ -46,7 +43,7 @@ class WorkoutActiveViewModel: ObservableObject {
         setupTimerSubscription()
         setupBackgroundHandling()
         setupAudioSession()
-        startLiveActivity()
+        //startLiveActivity()
     }
 
     var currentActivity: Activity { workoutTimeline[activityIndex] }
@@ -54,6 +51,44 @@ class WorkoutActiveViewModel: ObservableObject {
     var nextActivity: Activity? {
         guard activityIndex + 1 < workoutTimeline.count else { return nil }
         return workoutTimeline[activityIndex + 1]
+    }
+    
+    private func setupTimerSubscription() {
+        Timer
+            .publish(every: 0.1, on: .main, in: .common)
+            .autoconnect()
+            .sink { [weak self] _ in
+                guard let self = self else { return }
+                if self.isRunning {
+                    self.updateTimers()
+                    self.checkActivityCompletion()
+                    self.updateProgress()
+                }
+            }
+            .store(in: &cancellables)
+    }
+
+    private func updateTimers() {
+        currentActivityTimeLeft -= 0.1
+        var remainingActivitiesDuration: Double {
+            guard activityIndex + 1 < workoutTimeline.count else { return 0 }
+            return workoutTimeline[(activityIndex + 1)...].reduce(0) { $0 + $1.duration }
+        }
+        workoutTimeLeft = remainingActivitiesDuration + currentActivityTimeLeft
+        
+        if appState.soundsEnabled && currentActivityTimeLeft < 3 && !countdownPlayed {
+            if getSoundsEnabled() {
+                DispatchQueue.main.async {
+                    SoundManager.instance.playSound(sound: .countdown)
+                }
+            }
+            countdownPlayed = true
+        }
+    }
+    
+    private func updateProgress() {
+        circleProgress = 1 - (currentActivityTimeLeft / currentActivity.duration)
+        barProgress = (workout.duration - workoutTimeLeft) / workout.duration
     }
     
     private func setupAudioSession() {
@@ -112,55 +147,55 @@ class WorkoutActiveViewModel: ObservableObject {
         backgroundTask = .invalid
     }
 
-    func startLiveActivity() {
-        guard ActivityAuthorizationInfo().areActivitiesEnabled else { return }
-        
-        let attributes = WorkoutAttributes(workoutEndTime: Date().addingTimeInterval(TimeInterval(workout.duration) + 1))
-        let contentState = WorkoutAttributes.ContentState(
-            endTime: Date().addingTimeInterval(TimeInterval(currentActivityTimeLeft + 1)),
-            startTime: Date(),
-            activitiyName: currentActivity.title,
-            activityDuration: currentActivity.duration
-        )
-        
-        do {
-            let activity = try ActivityKit.Activity.request(
-                attributes: attributes,
-                content: .init(state: contentState, staleDate: nil),
-                pushType: nil
-            )
-            print("Requested a Live Activity \(activity.id)")
-        } catch {
-            print("Error requesting Live Activity: \(error.localizedDescription)")
-        }
-    }
-    
-    func updateLiveActivity() {
-        guard ActivityAuthorizationInfo().areActivitiesEnabled else { return }
-        print("updated activity")
-        print("new activity: \(currentActivity.title)")
-
-        let updatedContentState = WorkoutAttributes.ContentState(
-            endTime: Date().addingTimeInterval(TimeInterval(currentActivityTimeLeft)),
-            startTime: Date(),
-            activitiyName: currentActivity.title,
-            activityDuration: currentActivity.duration
-        )
-        
-        Task {
-            for activity in ActivityKit.Activity<WorkoutAttributes>.activities {
-                await activity.update(ActivityContent(state: updatedContentState, staleDate: nil))
-            }
-        }
-    }
-
-    func endLiveActivity() {
-        Task {
-            for activity in ActivityKit.Activity<WorkoutAttributes>.activities {
-                await activity.end(ActivityContent(state: activity.content.state, staleDate: nil), dismissalPolicy: .immediate)
-            }
-        }
-    }
+//    func startLiveActivity() {
+//        guard ActivityAuthorizationInfo().areActivitiesEnabled else { return }
+//        
+//        let attributes = WorkoutAttributes(workoutEndTime: Date().addingTimeInterval(TimeInterval(workout.duration) + 1))
+//        let contentState = WorkoutAttributes.ContentState(
+//            endTime: Date().addingTimeInterval(TimeInterval(currentActivityTimeLeft + 1)),
+//            startTime: Date(),
+//            activitiyName: currentActivity.title,
+//            activityDuration: currentActivity.duration
+//        )
+//        
+//        do {
+//            let activity = try ActivityKit.Activity.request(
+//                attributes: attributes,
+//                content: .init(state: contentState, staleDate: nil),
+//                pushType: nil
+//            )
+//            print("Requested a Live Activity \(activity.id)")
+//        } catch {
+//            print("Error requesting Live Activity: \(error.localizedDescription)")
+//        }
+//    }
+//    
+//    func updateLiveActivity() {
+//        guard ActivityAuthorizationInfo().areActivitiesEnabled else { return }
+//        print("updated activity")
+//        print("new activity: \(currentActivity.title)")
+//
+//        let updatedContentState = WorkoutAttributes.ContentState(
+//            endTime: Date().addingTimeInterval(TimeInterval(currentActivityTimeLeft)),
+//            startTime: Date(),
+//            activitiyName: currentActivity.title,
+//            activityDuration: currentActivity.duration
+//        )
+//        
+//        Task {
+//            for activity in ActivityKit.Activity<WorkoutAttributes>.activities {
+//                await activity.update(ActivityContent(state: updatedContentState, staleDate: nil))
+//            }
+//        }
+//    }
+//
+//    func endLiveActivity() {
+//        Task {
+//            for activity in ActivityKit.Activity<WorkoutAttributes>.activities {
+//                await activity.end(ActivityContent(state: activity.content.state, staleDate: nil), dismissalPolicy: .immediate)
+//            }
+//        }
+//    }
     
     func getSoundsEnabled() -> Bool {
         return UserDefaults.standard.hasSoundsEnabled
@@ -172,7 +207,6 @@ class WorkoutActiveViewModel: ObservableObject {
         activityIndex = 0
         workoutTimeLeft = workout.duration
         currentActivityTimeLeft = currentActivity.duration
-        currentActivityDurationDone = 0.0
         celebrationSoundPlayed = false
         stopBackgroundAudio()
         endBackgroundTask()
@@ -185,11 +219,11 @@ class WorkoutActiveViewModel: ObservableObject {
             workoutTimeLeft -= currentActivityTimeLeft
             activityIndex += 1
             currentActivityTimeLeft = currentActivity.duration
-            currentActivityDurationDone = 0.0
             if getSoundsEnabled() {
                 SoundManager.instance.stopSound()
             }
         }
+        countdownPlayed = false
     }
 
     func togglePause() {
@@ -225,52 +259,18 @@ class WorkoutActiveViewModel: ObservableObject {
         workoutViewModel.saveWorkout()
     }
 
-    private func setupTimerSubscription() {
-        timer.sink { [weak self] _ in
-            guard let self = self, self.isRunning else { return }
-            
-            self.updateTimers()
-            self.checkActivityCompletion()
-            self.updateProgress()
-        }.store(in: &cancellables)
-    }
-
-    private func updateTimers() {
-        currentActivityTimeLeft -= 0.01
-        workoutTimeLeft -= 0.01
-        currentActivityDurationDone += 0.01
-        
-        if Int(workoutTimeLeft * 100) % 100 == 0 {
-            // updateLiveActivity()
-        }
-        
-        if appState.soundsEnabled && currentActivityTimeLeft < 3 && !countdownPlayed {
-            if getSoundsEnabled() {
-                DispatchQueue.main.async {
-                    SoundManager.instance.playSound(sound: .countdown)
-                }
-            }
-            countdownPlayed = true
-        }
-    }
-
     private func checkActivityCompletion() {
         if currentActivityTimeLeft <= 0 {
             if activityIndex == workoutTimeline.count - 2 {
                 finishWorkoutToCompletedView()
-                endLiveActivity()
+                //endLiveActivity()
             } else {
                 activityIndex += 1
                 currentActivityTimeLeft = currentActivity.duration
                 countdownPlayed = false
-                updateLiveActivity()
+                //updateLiveActivity()
             }
         }
-    }
-
-    private func updateProgress() {
-        circleProgress = 1 - (currentActivityTimeLeft / currentActivity.duration)
-        barProgress = (workout.duration - workoutTimeLeft) / workout.duration
     }
 
     deinit {
