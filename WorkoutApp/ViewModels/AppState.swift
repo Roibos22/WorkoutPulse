@@ -11,7 +11,6 @@ class AppState: ObservableObject {
     @Published var workouts: [Workout] = []
     @Published var completedWorkouts: [CompletedWorkout] = []
     @Published var achievements: [AchievementGroup] = []
-    @Published var soundsEnabled: Bool = true
     
     @Published var language: Language {
         didSet {
