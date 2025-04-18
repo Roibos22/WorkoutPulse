@@ -36,11 +36,11 @@ struct StreaksView: View {
                             HStack {
                                 Image(systemName: "flame.fill")
                                     .foregroundColor(workoutDoneToday ? .red : .gray)
-                                Text("\(currentStreak)")
+                                Text("\(String(currentStreak))")
                                     .foregroundColor(.black)
                             }
                             .bold()
-                            .font(.system(size: 40))
+                            .font(.system(size: 36))
                             .padding()
                                 Text("Current Streak")
                                     .font(.callout)
@@ -61,12 +61,12 @@ struct StreaksView: View {
                         VStack {
                             HStack {
                                 Image(systemName: "flame.fill")
-                                Text("\(appState.getLongestStreak().length)")
+                                Text("\(String(appState.getLongestStreak().length))")
                                     .foregroundColor(.black)
                             }
                             .foregroundColor(.orange)
                             .bold()
-                            .font(.system(size: 40))
+                            .font(.system(size: 36))
                             .padding()
                             
                             Text("Longest Streak")

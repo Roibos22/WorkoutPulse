@@ -120,7 +120,7 @@ struct WorkoutListView: View {
             HStack {
                 Image(systemName: "flame.fill")
                     .foregroundColor(workoutDoneToday ? .red : .gray)
-                Text("\(currentStreak)")
+                Text("\(String(currentStreak))")
             }
             .foregroundColor(.primary)
             .font(.title2)
