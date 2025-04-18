@@ -48,9 +48,8 @@ class WorkoutActiveViewModel: ObservableObject {
 
     var currentActivity: Activity { workoutTimeline[activityIndex] }
     var isRestActivity: Bool { currentActivity.title == "Rest" }
-    var nextActivity: Activity? {
-        guard activityIndex + 1 < workoutTimeline.count else { return nil }
-        return workoutTimeline[activityIndex + 1]
+    var nextExerciseActivity: Activity? {
+        return workoutTimeline.dropFirst(activityIndex + 1).first(where: { $0.type == .exercise })
     }
     
     private func setupTimerSubscription() {
@@ -249,14 +248,14 @@ class WorkoutActiveViewModel: ObservableObject {
         showCompletedView = true
         stopBackgroundAudio()
         endBackgroundTask()
+        appState.saveCompletedWorkoutSession(workout)
+        workoutViewModel.workout.completions += 1
+        workoutViewModel.saveWorkout()
     }
     
     func finishWorkoutFinal() {
         resetWorkout()
         showCompletedView = false
-        appState.saveCompletedWorkoutSession(workout)
-        workoutViewModel.workout.completions += 1
-        workoutViewModel.saveWorkout()
     }
 
     private func checkActivityCompletion() {
