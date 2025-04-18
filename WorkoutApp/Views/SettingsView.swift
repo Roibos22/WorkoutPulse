@@ -10,7 +10,8 @@ import SwiftUI
 struct SettingsView: View {
     @ObservedObject var viewModel: WorkoutListViewModel
     @Environment(\.dismiss) private var dismiss
-    @AppStorage("hasSoundsEnabled") private var soundsEnabled = true
+    @AppStorage("hasSoundsEnabled") private var soundsEnabled = true { didSet { if !soundsEnabled { announceActivities = false } } }
+    @AppStorage("announceActivitiesEnabled") private var announceActivities = true
     @AppStorage("darkModeOn") private var darkModeOn = true
     var supportedLanguages: [Language] = [.englishUK, .englishUS, .french, .german, .italian, .portugueseBR, .portuguesePT, .spanish]
     private let urls = URLs()
@@ -49,6 +50,7 @@ struct SettingsView: View {
         Section {
             languagePicker
             soundsEnabledToggle
+            announceActivitiesToggle
             darkModeOnToggle
         } header: {
             Text("Settings")
@@ -65,6 +67,14 @@ struct SettingsView: View {
                 Text("Sounds")
             }
         }
+    }
+    
+    
+    private var announceActivitiesToggle: some View {
+        Toggle(isOn: $announceActivities) {
+            Text("Announce Activities")
+        }
+        .disabled(!soundsEnabled)
     }
     
     private var darkModeOnToggle: some View {

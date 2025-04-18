@@ -48,9 +48,8 @@ class WorkoutActiveViewModel: ObservableObject {
 
     var currentActivity: Activity { workoutTimeline[activityIndex] }
     var isRestActivity: Bool { currentActivity.title == "Rest" }
-    var nextActivity: Activity? {
-        guard activityIndex + 1 < workoutTimeline.count else { return nil }
-        return workoutTimeline[activityIndex + 1]
+    var nextExerciseActivity: Activity? {
+        return workoutTimeline.dropFirst(activityIndex + 1).first(where: { $0.type == .exercise })
     }
     
     private func setupTimerSubscription() {
@@ -70,13 +69,30 @@ class WorkoutActiveViewModel: ObservableObject {
 
     private func updateTimers() {
         currentActivityTimeLeft -= 0.1
-        var remainingActivitiesDuration: Double {
-            guard activityIndex + 1 < workoutTimeline.count else { return 0 }
-            return workoutTimeline[(activityIndex + 1)...].reduce(0) { $0 + $1.duration }
+        workoutTimeLeft = calculateRemainingActivitiesDuration() + currentActivityTimeLeft
+
+        if !countdownPlayed {
+            handleNextActivityAnnouncement()
+            handleCountdownSound()
         }
-        workoutTimeLeft = remainingActivitiesDuration + currentActivityTimeLeft
-        
-        if appState.soundsEnabled && currentActivityTimeLeft < 3 && !countdownPlayed {
+    }
+
+    private func calculateRemainingActivitiesDuration() -> Double {
+        guard activityIndex + 1 < workoutTimeline.count else { return 0 }
+        return workoutTimeline[(activityIndex + 1)...].reduce(0) { $0 + $1.duration }
+    }
+
+    private func handleNextActivityAnnouncement() {
+        if currentActivityTimeLeft < 4.3 && currentActivityTimeLeft >= 4.2 {
+            if getSoundsEnabled() && activityIndex + 1 < workoutTimeline.count {
+                let nextActivity = workoutTimeline[activityIndex + 1]
+                announceWorkoutActivity(activity: nextActivity)
+            }
+        }
+    }
+
+    private func handleCountdownSound() {
+        if currentActivityTimeLeft < 3 {
             if getSoundsEnabled() {
                 DispatchQueue.main.async {
                     SoundManager.instance.playSound(sound: .countdown)
@@ -85,6 +101,8 @@ class WorkoutActiveViewModel: ObservableObject {
             countdownPlayed = true
         }
     }
+
+
     
     private func updateProgress() {
         circleProgress = 1 - (currentActivityTimeLeft / currentActivity.duration)
@@ -219,11 +237,12 @@ class WorkoutActiveViewModel: ObservableObject {
             workoutTimeLeft -= currentActivityTimeLeft
             activityIndex += 1
             currentActivityTimeLeft = currentActivity.duration
+            countdownPlayed = false // Reset countdown flag to allow for new countdown
+
             if getSoundsEnabled() {
                 SoundManager.instance.stopSound()
             }
         }
-        countdownPlayed = false
     }
 
     func togglePause() {
@@ -249,14 +268,14 @@ class WorkoutActiveViewModel: ObservableObject {
         showCompletedView = true
         stopBackgroundAudio()
         endBackgroundTask()
+        appState.saveCompletedWorkoutSession(workout)
+        workoutViewModel.workout.completions += 1
+        workoutViewModel.saveWorkout()
     }
     
     func finishWorkoutFinal() {
         resetWorkout()
         showCompletedView = false
-        appState.saveCompletedWorkoutSession(workout)
-        workoutViewModel.workout.completions += 1
-        workoutViewModel.saveWorkout()
     }
 
     private func checkActivityCompletion() {
@@ -269,6 +288,15 @@ class WorkoutActiveViewModel: ObservableObject {
                 currentActivityTimeLeft = currentActivity.duration
                 countdownPlayed = false
                 //updateLiveActivity()
+            }
+        }
+    }
+    
+    private func announceWorkoutActivity(activity: Activity) {
+        if getSoundsEnabled() {
+            let text = "\(activity.title)"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                SoundManager.instance.speakText(text: text)
             }
         }
     }

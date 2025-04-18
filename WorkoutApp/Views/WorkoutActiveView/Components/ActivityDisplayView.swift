@@ -22,7 +22,7 @@ struct ActivityDisplayView: View {
                         .stroke(viewModel.isRestActivity ? Color.blue : Color.black, lineWidth: 6)
                 )
             
-            if let nextActivity = viewModel.nextActivity {
+            if let nextActivity = viewModel.nextExerciseActivity {
                 Text("Next: \(nextActivity.title)")
                     .font(.title2)
                     .frame(maxWidth: .infinity, alignment: .center)
