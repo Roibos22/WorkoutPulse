@@ -10,6 +10,7 @@ import Combine
 import ActivityKit
 import AVFoundation
 import UIKit
+import StoreKit
 
 class WorkoutActiveViewModel: ObservableObject {
     @Published var workout: Workout
@@ -24,6 +25,7 @@ class WorkoutActiveViewModel: ObservableObject {
     @Published var barProgress = 0.0
     @Published var showCompletedView = false
     @Published var celebrationSoundPlayed = false
+    @Published var isFirstWorkoutCompletion = false
     private var countdownPlayed = false
     // TIMER
     @Published var workoutTimeline: [Activity]
@@ -271,6 +273,23 @@ class WorkoutActiveViewModel: ObservableObject {
         appState.saveCompletedWorkoutSession(workout)
         workoutViewModel.workout.completions += 1
         workoutViewModel.saveWorkout()
+        
+        checkForFirstWorkoutCompletion()
+    }
+    
+    private func checkForFirstWorkoutCompletion() {
+        if !UserDefaults.standard.hasCompletedFirstWorkout {
+            UserDefaults.standard.hasCompletedFirstWorkout = true
+            isFirstWorkoutCompletion = true
+        }
+    }
+    
+    func requestAppStoreReview() {
+        guard let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene else {
+            return
+        }
+        
+        SKStoreReviewController.requestReview(in: scene)
     }
     
     func finishWorkoutFinal() {

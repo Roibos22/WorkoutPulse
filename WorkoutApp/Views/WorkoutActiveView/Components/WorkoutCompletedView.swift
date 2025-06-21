@@ -56,7 +56,14 @@ struct WorkoutCompletedView: View {
             openingAngle: confettiOpeningAngle,
             closingAngle: confettiClosingAngle
         )
-        .onAppear(perform: startConfetti)
+        .onAppear {
+            startConfetti()
+            if viewModel.isFirstWorkoutCompletion {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    viewModel.requestAppStoreReview()
+                }
+            }
+        }
     }
     
     private var backgroundView: some View {

@@ -12,6 +12,7 @@ extension UserDefaults {
         static let hasCreatedCustomWorkout = "hasCreatedCustomWorkout"
         static let hasSavedTemplateWorkout = "hasSavedTemplateWorkout"
         static let hasSoundsEnabled = "hasSoundsEnabled"
+        static let hasCompletedFirstWorkout = "hasCompletedFirstWorkout"
     }
     
     var hasSoundsEnabled: Bool {
@@ -27,5 +28,10 @@ extension UserDefaults {
     var hasSavedTemplateWorkout: Bool {
         get { bool(forKey: Keys.hasSavedTemplateWorkout) }
         set { set(newValue, forKey: Keys.hasSavedTemplateWorkout) }
+    }
+    
+    var hasCompletedFirstWorkout: Bool {
+        get { bool(forKey: Keys.hasCompletedFirstWorkout) }
+        set { set(newValue, forKey: Keys.hasCompletedFirstWorkout) }
     }
 }
